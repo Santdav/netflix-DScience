@@ -94,8 +94,16 @@ for title in indiaTvShows['Title'].tolist():
 Q. 6) Show Top 10 Directors, who gave the highest number of TV Shows & Movies to Netflix ?
 
 Q. 7) Show all the Records, where "Category is Movie and Type is Comedies" or "Country is United Kingdom".
+```python
+result = df[((df['Category'] == 'Movie') & (df['Type'] == 'Comedies')) | (df['Country'].str.contains('United Kingdom', na=False))]
+print(result)
+```
 
 Q. 8) In how many movies/shows, Tom Cruise was cast ?
+```python
+Tcruise_roles = df[df['Cast'].str.contains('Tom Cruise', na=False)]
+print(f'Tom Cruise was cast in {Tcruise_roles["Title"].count()} movies/shows.')
+```
 
 Q. 9) What are the different Ratings defined by Netflix ?
 - Q. 9.1) How many Movies got the 'TV-14' rating, in Canada ?

@@ -81,6 +81,15 @@ plt.show()
 Q. 4) Show all the Movies that were released in year 2000.
 
 Q. 5) Show only the Titles of all TV Shows that were released in India only.
+```python
+
+indiaTvShows = df[(df['Category'] == 'TV Show') & (df['Country'] == 'India')]
+# equally comparator filder only "India"
+
+print(f"\nTotal TV Shows released in India: {len(indiaTvShows)}")
+for title in indiaTvShows['Title'].tolist():
+    print(title)
+```
 
 Q. 6) Show Top 10 Directors, who gave the highest number of TV Shows & Movies to Netflix ?
 
@@ -89,8 +98,8 @@ Q. 7) Show all the Records, where "Category is Movie and Type is Comedies" or "C
 Q. 8) In how many movies/shows, Tom Cruise was cast ?
 
 Q. 9) What are the different Ratings defined by Netflix ?
-Q. 9.1) How many Movies got the 'TV-14' rating, in Canada ?
-Q. 9.2) How many TV Shows got the 'R' rating, after year 2018 ?
+- Q. 9.1) How many Movies got the 'TV-14' rating, in Canada ?
+- Q. 9.2) How many TV Shows got the 'R' rating, after year 2018 ?
 
 Q. 10) What is the maximum duration of a Movie/Show on Netflix ?
 

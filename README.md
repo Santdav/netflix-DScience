@@ -48,6 +48,35 @@ plt.show()
 ```
 
 Q. 3) How many Movies & TV Shows are in the dataset ? Show with Bar Graph.
+```python
+# get counts of each category
+category_counts = df['Category'].value_counts()
+
+# Logging the results
+print("Total number of Movies & TV Shows in the dataset:")
+print(f"Total entries: {len(df)}")
+print("\nBreakdown by Category:")
+print(f"Movies: {category_counts.get('Movie', 0)}")
+print(f"TV Shows: {category_counts.get('TV Show', 0)}")
+
+# Visualization
+plt.figure(figsize=(8,6))
+
+bars = plt.bar(category_counts.index, category_counts.values, 
+               color=['blue', 'orange'], width=0.6)
+plt.title('Movies vs TV Shows', fontsize=14, fontweight='bold')
+plt.xlabel('Type', fontsize=12)
+plt.ylabel('Count', fontsize=12)
+plt.grid(axis='y', alpha=0.3)
+
+for bar in bars:
+    yval = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width()/2, yval + 5, int(yval), 
+             ha='center', va='bottom', fontsize=10)
+
+plt.tight_layout()
+plt.show()
+```
 
 Q. 4) Show all the Movies that were released in year 2000.
 

@@ -79,6 +79,13 @@ plt.show()
 ```
 
 Q. 4) Show all the Movies that were released in year 2000.
+```python
+movies_2000 = df[(df['Category'] == 'Movie') & (df['Release_Year'] == 2000)]
+
+print("Movies released in 2000:")
+for title in movies_2000['Title']:
+    print(f"-  {title}")
+```
 
 Q. 5) Show only the Titles of all TV Shows that were released in India only.
 ```python

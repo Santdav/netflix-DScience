@@ -7,6 +7,8 @@ df = pd.read_csv('Netflix Dataset.csv')
 # ['Show_Id', 'Category', 'Title', 'Director', 'Cast', 'Country',
 #       'Release_Date', 'Rating', 'Duration', 'Type', 'Description']
 
-#Q. 7) Show all the Records, where "Category is Movie and Type is Comedies" or "Country is United Kingdom".
-result = df[((df['Category'] == 'Movie') & (df['Type'] == 'Comedies')) | (df['Country'].str.contains('United Kingdom', na=False))]
-print(result)
+movies_2000 = df[(df['Category'] == 'Movie') & (df['Release_Year'] == 2000)]
+
+print("Movies released in 2000:")
+for title in movies_2000['Title']:
+    print(f"-  {title}")

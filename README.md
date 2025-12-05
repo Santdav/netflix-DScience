@@ -119,8 +119,30 @@ print(f'Tom Cruise was cast in {Tcruise_roles["Title"].count()} movies/shows.')
 ```
 
 Q. 9) What are the different Ratings defined by Netflix ?
+```python
+ratings = df['Rating'].unique()
+print("Different Ratings defined by Netflix:")
+print(ratings)
+
+```
 - Q. 9.1) How many Movies got the 'TV-14' rating, in Canada ?
+  ```python
+    movies_tv14_canada = df[(df['Rating'] == 'TV-14') & (df['Country'] == 'Canada') & (df['Category'] == 'Movie')]
+    print(f"Number of Movies with 'TV-14' rating in Canada: {movies_tv14_canada.shape[0]}")
+  ```
 - Q. 9.2) How many TV Shows got the 'R' rating, after year 2018 ?
+  ```python
+    # Convert Release_Date to datetime and extract year
+    df['Release_Date'] = pd.to_datetime(df['Release_Date'], errors='coerce')
+    df['Release_Year'] = df['Release_Date'].dt.year
+
+    # Count TV Shows with 'R' rating after 2018
+    count = len(df[(df['Category'] == 'TV Show') & 
+               (df['Rating'] == 'R') & 
+               (df['Release_Year'] > 2018)])
+
+    print(f"Number of TV Shows with 'R' rating after 2018: {count}")
+  ```
 
 Q. 10) What is the maximum duration of a Movie/Show on Netflix ?
 ```python

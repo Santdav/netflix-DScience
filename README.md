@@ -184,7 +184,23 @@ print(tv_max_duration)
 ```
 
 Q. 11) Which individual country has the Highest No. of TV Shows ?
+```python
+tv_shows = df[df['Category'] == 'TV Show']
+country_counts = tv_shows['Country'].value_counts()
+highest_country = country_counts.idxmax()
+print(f"The country with the highest number of TV Shows is: {highest_country} with {country_counts.max()} TV Shows.")
+```
 
 Q. 12) How can we sort the dataset by Year ?
+```python
+sorted_df = df.sort_values(by='Release_Date')
+print(sorted_df[['Title', 'Release_Date']].head(10))
+```
 
 Q. 13) Find all the instances where: Category is 'Movie' and Type is 'Dramas' or Category is 'TV Show' & Type is 'Kids' TV'.
+```python
+movies_dramas = df[(df['Category'] == 'Movie') & (df['Type'] == 'Dramas')]
+tvshows_kids = df[(df['Category'] == 'TV Show') & (df['Type'] == 'Kids TV')]
+result = pd.concat([movies_dramas, tvshows_kids])
+print(result)
+```

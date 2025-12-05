@@ -99,6 +99,12 @@ for title in indiaTvShows['Title'].tolist():
 ```
 
 Q. 6) Show Top 10 Directors, who gave the highest number of TV Shows & Movies to Netflix ?
+```python
+#6) Show Top 10 Directors, who gave the highest number of TV Shows & Movies to Netflix ? with number of TV Shows & Movies also.
+top_directors = df['Director'].value_counts().head(10)
+print("Top 10 Directors with the highest number of TV Shows & Movies on Netflix:")
+print(top_directors)
+```
 
 Q. 7) Show all the Records, where "Category is Movie and Type is Comedies" or "Country is United Kingdom".
 ```python

@@ -8,7 +8,3 @@ df = pd.read_csv('Netflix Dataset.csv')
 #       'Release_Date', 'Rating', 'Duration', 'Type', 'Description']
 
 #Find all the instances where: Category is 'Movie' and Type is 'Dramas' or Category is 'TV Show' & Type is 'Kids' TV'.
-movies_dramas = df[(df['Category'] == 'Movie') & (df['Type'] == 'Dramas')]
-tvshows_kids = df[(df['Category'] == 'TV Show') & (df['Type'] == 'Kids TV')]
-result = pd.concat([movies_dramas, tvshows_kids])
-print(result)
